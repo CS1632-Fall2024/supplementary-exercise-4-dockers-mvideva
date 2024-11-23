@@ -29,7 +29,9 @@ public class D3Test {
 
     @Before
     public void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.get("http://localhost:8080/");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.cookie = '1=false';document.cookie = '2=false';document.cookie = '3=false';");
